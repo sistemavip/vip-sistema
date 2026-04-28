@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Off-White Background */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+    
+    /* Primary: VIP Yellow #F2E307 - Softer for better contrast */
+    --primary: 56 85% 52%;
+    --primary-foreground: 0 0% 5%;
+    
+    /* Secondary: VIP Bronze #A68D60 */
+    --secondary: 39 28% 51%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted */
+    --muted: 180 11% 95%;
+    --muted-foreground: 0 0% 40%;
+    
+    /* Accent: VIP Bright Yellow #EBF21B - Softer for better contrast */
+    --accent: 61 80% 56%;
+    --accent-foreground: 0 0% 5%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 180 11% 85%;
+    --input: 180 11% 85%;
+    --ring: 56 94% 48%;
+    --radius: 0.75rem;
+    
+    /* Chart Colors */
+    --chart-1: 56 94% 48%;
+    --chart-2: 61 89% 52%;
+    --chart-3: 39 28% 51%;
+    --chart-4: 180 11% 60%;
+    --chart-5: 0 0% 5%;
+    
+    /* VIP Brand Colors */
+    --vip-primary: 56 94% 48%;
+    --vip-secondary: 61 89% 52%;
+    --vip-bronze: 39 28% 51%;
+    --vip-gray: 180 11% 60%;
+    --vip-black: 0 0% 5%;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 5%;
+    --sidebar-primary: 56 94% 48%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 180 11% 95%;
+    --sidebar-accent-foreground: 0 0% 5%;
+    --sidebar-border: 180 11% 85%;
+    --sidebar-ring: 56 94% 48%;
+  }
+
+  .dark {
+    /* Dark Mode - Black Background */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Primary: VIP Yellow #F2E307 - Softer for better contrast */
+    --primary: 56 85% 52%;
+    --primary-foreground: 0 0% 5%;
+    
+    /* Secondary: VIP Bronze #A68D60 */
+    --secondary: 39 28% 51%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted */
+    --muted: 180 11% 15%;
+    --muted-foreground: 180 11% 70%;
+    
+    /* Accent: VIP Bright Yellow #EBF21B - Softer for better contrast */
+    --accent: 61 80% 56%;
+    --accent-foreground: 0 0% 5%;
+    
+    /* Destructive */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border & Input */
+    --border: 180 11% 20%;
+    --input: 180 11% 20%;
+    --ring: 56 94% 48%;
+    
+    /* Chart Colors */
+    --chart-1: 56 94% 48%;
+    --chart-2: 61 89% 52%;
+    --chart-3: 39 28% 51%;
+    --chart-4: 180 11% 60%;
+    --chart-5: 0 0% 95%;
+    
+    /* VIP Brand Colors */
+    --vip-primary: 56 94% 48%;
+    --vip-secondary: 61 89% 52%;
+    --vip-bronze: 39 28% 51%;
+    --vip-gray: 180 11% 60%;
+    --vip-black: 0 0% 5%;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 56 94% 48%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 180 11% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 180 11% 20%;
+    --sidebar-ring: 56 94% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  /* Minimalist Components */
+  .minimal-card {
+    @apply bg-card border border-border/50 rounded-lg backdrop-blur-sm;
+    box-shadow: 0 1px 3px hsl(0 0% 0% / 0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .minimal-card:hover {
+    @apply border-primary/20;
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.15);
+    transform: translateY(-1px);
+  }
+
+  /* Typography */
+  .text-heavy {
+    @apply font-black tracking-tight;
+  }
+  
+  .text-light {
+    @apply font-light tracking-wide;
+  }
+  
+  .text-glow {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  /* Interactive Elements */
+  .button-minimal {
+    @apply bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium;
+    @apply hover:shadow-lg transform transition-all duration-200;
+    @apply hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Status Indicators - Minimalist */
+  .status-success {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+  
+  .status-warning {
+    @apply bg-amber-500/20 text-amber-400 border border-amber-500/30;
+  }
+  
+  .status-danger {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  /* Blur Effects */
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-xl border border-white/10;
+  }
+  
+  /* Hover Animations */
+  .hover-glow:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  /* Animated Gradient Background */
+  .animated-gradient {
+    background: linear-gradient(-45deg, 
+      hsl(var(--primary)/0.1), 
+      hsl(var(--accent)/0.1), 
+      hsl(var(--primary)/0.05),
+      hsl(var(--background))
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  /* Glow Effect */
+  .glow-primary {
+    box-shadow: 0 0 60px hsl(var(--primary)/0.3);
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary)/0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Text Stroke para contraste em modo light */
+  .text-stroke-dark {
+    -webkit-text-stroke: 1px hsl(0 0% 20%);
+    text-stroke: 1px hsl(0 0% 20%);
+    paint-order: stroke fill;
+  }
+
+  .text-stroke-light {
+    -webkit-text-stroke: 0.5px hsl(0 0% 100% / 0.3);
+    text-stroke: 0.5px hsl(0 0% 100% / 0.3);
+    paint-order: stroke fill;
+  }
+}
